@@ -8,6 +8,7 @@ const App = () => {
     layout:layout.slide,
     selector:".container",
     transformOrigin:transformOrigin.center,
+    selectedIndex:1,
     items:[
       {image:"/images/Roads.jpg",title:"Roads"},
       {image:"/images/Renewables.jpg",title:"Renewables"},

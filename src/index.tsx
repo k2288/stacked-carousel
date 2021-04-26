@@ -10,7 +10,8 @@ interface config {
   onClick?: (el: HTMLElement) => {} // onclick event provided
   transformOrigin: transformOrigin // css transformOrigin
   selector: string
-  items: Item[]
+  items: Item[],
+  selectedIndex:number
 }
 
 interface Item {
@@ -33,7 +34,8 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
     onClick: undefined, // onclick event provided
     transformOrigin: transformOrigin.center, // css transformOrigin
     selector: '',
-    items: []
+    items: [],
+    selectedIndex:2
   })
 
   const [els, setEls] = React.useState<NodeListOf<HTMLElement>>()
@@ -69,8 +71,7 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
       if (parent) {
         parent.style.height = getItemHeight + 'px'
       }
-      let lenAdjust = els.length % 2 == 0 ? -2 : -1
-      let oneHalf = (els.length + lenAdjust) / 2
+
 
       let activeTransform = 'translate(' + -50 + '%, 0%)  scale(1)'
 
@@ -129,7 +130,7 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
         })
       })
 
-      els[oneHalf].click()
+      els[config.selectedIndex].click()
     }
   }
 
