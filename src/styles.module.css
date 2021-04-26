@@ -1,9 +1,90 @@
-/* add css module styles here (optional) */
+.featured {
+  align-self: center;
+}
+.featured .slider {
+  list-style: none;
+  padding: 0;
+}
+.featured .slider li {
+  height: 400px;
+  width: 300px;
+  border-radius: 4px;
+  background-color: #00bcd4;
+  display: flex;
+}
+.featured .slider li h2 {
+  margin-top: auto;
+  background: #fff;
+  width: 100%;
+  padding: 20px 20px;
+  display: block;
+  bottom: 0;
+}
+.featured .slider li:nth-child(n) {
+  background-color: #3599db;
+}
+.featured .slider li:nth-child(2n) {
+  background-color: #e61b77;
+}
+.featured .slider li:nth-child(3n) {
+  background-color: #00bcd4;
+}
+.featured .slider li:nth-child(4n) {
+  background-color: #f4b251;
+}
+.featured .slider li:nth-child(5n) {
+  background-color: #8e4497;
+}
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+/* STACKED CARDS */
+.stacked-cards {
+  position: relative;
+}
+
+.stacked-cards ul {
+  position: relative;
+  max-width: 60%;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.stacked-cards li {
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0px #333;
+  list-style: none;
+  width: 65%;
+  position: absolute;
+  left: 50%;
+  transition: 0.5s ease transform;
+  overflow: hidden;
+}
+
+.stacked-cards li h2{
+  position: absolute;
+  z-index: 100;
+}
+
+.stacked-cards li:after {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.stacked-cards li img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  z-index: 4;
+}
+
+.stacked-cards li.active {
+  cursor: default;
+  box-shadow: 0 5px 10px 0px #333;
+  transition: 0.5s ease transform;
 }

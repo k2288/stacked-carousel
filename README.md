@@ -15,12 +15,12 @@ npm install --save stacked-carousel
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'stacked-carousel'
+import StackedCarousel from 'stacked-carousel'
 import 'stacked-carousel/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <StackedCarousel  />
   }
 }
 ```
