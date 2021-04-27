@@ -41,28 +41,23 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
   const [els, setEls] = React.useState<NodeListOf<HTMLElement>>()
 
   React.useEffect(() => {
-    setConfig(extend(config, option))
+    setConfig(option)
+  }, [])
+
+  React.useEffect(() => {
+    console.log(config);
     setEls(
       document.querySelectorAll(
         config.selector + ' li'
       ) as NodeListOf<HTMLElement>
     )
-  }, [])
+  },[config])
 
   React.useEffect(() => {
     if (els?.length) draw()
   }, [els])
 
-  const extend = function (custom: config, defaults: config) {
-    let key, value
-    for (key in defaults) {
-      value = defaults[key]
-      if (custom[key] == null) {
-        custom[key] = value
-      }
-    }
-    return custom
-  }
+
 
   const draw = function () {
     if (els) {
