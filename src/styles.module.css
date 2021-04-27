@@ -20,21 +20,7 @@
   display: block;
   bottom: 0;
 }
-.featured .slider li:nth-child(n) {
-  background-color: #3599db;
-}
-.featured .slider li:nth-child(2n) {
-  background-color: #e61b77;
-}
-.featured .slider li:nth-child(3n) {
-  background-color: #00bcd4;
-}
-.featured .slider li:nth-child(4n) {
-  background-color: #f4b251;
-}
-.featured .slider li:nth-child(5n) {
-  background-color: #8e4497;
-}
+
 
 /* STACKED CARDS */
 .stacked-cards {
