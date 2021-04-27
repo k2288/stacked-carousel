@@ -13,10 +13,11 @@ const App = () => {
     { image: '/images/Rail.jpg', title: 'Rail' }
   ]
   return (
+    <>
     <StackedCarousel
       option={{
         layout: layout.slide,
-        selector: '.container',
+        selector: 'container-test',
         transformOrigin: transformOrigin.center,
         selectedIndex: 1,
         items: items.map((item) => {
@@ -31,6 +32,11 @@ const App = () => {
         })
       }}
     />
+    <ul>
+      <li>test</li>
+      <li>test2</li>
+    </ul>
+    </>
   )
 }
 

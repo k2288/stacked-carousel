@@ -10,8 +10,8 @@ interface config {
   onClick?: (el: HTMLElement) => {} // onclick event provided
   transformOrigin: transformOrigin // css transformOrigin
   selector: string
-  items: React.ReactElement[],
-  selectedIndex:number
+  items: React.ReactElement[]
+  selectedIndex: number
 }
 
 interface Item {
@@ -33,9 +33,9 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
     layout: layout.slide, // slide, fanOut
     onClick: undefined, // onclick event provided
     transformOrigin: transformOrigin.center, // css transformOrigin
-    selector: '',
+    selector: 'stacked-carousel-container',
     items: [],
-    selectedIndex:2
+    selectedIndex: 2
   })
 
   const [els, setEls] = React.useState<NodeListOf<HTMLElement>>()
@@ -45,19 +45,18 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
   }, [])
 
   React.useEffect(() => {
-    console.log(config);
-    setEls(
-      document.querySelectorAll(
-        config.selector + ' li'
-      ) as NodeListOf<HTMLElement>
-    )
-  },[config])
+    if (config.items.length > 0) {
+      setEls(
+        document.querySelectorAll(
+          '.' + config.selector + ' li'
+        ) as NodeListOf<HTMLElement>
+      )
+    }
+  }, [config])
 
   React.useEffect(() => {
     if (els?.length) draw()
   }, [els])
-
-
 
   const draw = function () {
     if (els) {
@@ -66,7 +65,6 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
       if (parent) {
         parent.style.height = getItemHeight + 'px'
       }
-
 
       let activeTransform = 'translate(' + -50 + '%, 0%)  scale(1)'
 
@@ -80,10 +78,10 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
       // to get the active element's position, we will have to know if elements are in even/odd count
 
       // oneHalf if the centerPoint - things go left and right from here
-
+      console.log(els)
       els.forEach((el) => {
         el.style.transformOrigin = config.transformOrigin
-
+        console.log(el)
         el.addEventListener('click', function () {
           let clickedEl = el as HTMLElement
           let nextCnt = 0
@@ -333,9 +331,7 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
     <div
       className={`${styles['stacked-cards']} ${styles['featured']} ${config.selector} `}
     >
-      <ul className={styles.slider}>
-        {option.items}
-      </ul>
+      <ul className={styles.slider}>{option.items}</ul>
     </div>
   )
 }
