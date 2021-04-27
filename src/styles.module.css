@@ -11,14 +11,6 @@
   border-radius: 4px;
   display: flex;
 }
-.featured .slider li h2 {
-  margin-top: auto;
-  background: #fff;
-  width: 100%;
-  padding: 20px 20px;
-  display: block;
-  bottom: 0;
-}
 
 
 /* STACKED CARDS */
@@ -46,10 +38,7 @@
   overflow: hidden;
 }
 
-.stacked-cards li h2{
-  position: absolute;
-  z-index: 100;
-}
+
 
 .stacked-cards li:after {
   bottom: 0;
@@ -60,13 +49,7 @@
   top: 0;
 }
 
-.stacked-cards li img {
-  position: relative;
-  display: block;
-  max-width: 100%;
-  height: auto;
-  z-index: 4;
-}
+
 
 .stacked-cards li.active {
   cursor: default;
