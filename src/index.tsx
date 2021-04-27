@@ -10,7 +10,7 @@ interface config {
   onClick?: (el: HTMLElement) => {} // onclick event provided
   transformOrigin: transformOrigin // css transformOrigin
   selector: string
-  items: Item[],
+  items: React.ReactElement[],
   selectedIndex:number
 }
 
@@ -339,12 +339,7 @@ export const StackedCarousel = ({ option }: StackedCarouselProps) => {
       className={`${styles['stacked-cards']} ${styles['featured']} ${config.selector} `}
     >
       <ul className={styles.slider}>
-        {option.items.map((item) => {
-          return <li  key={`carousel_item_${item.title}`} className={styles.item}>
-            <img src={item.image} alt=""/>
-            <h2 style={{position:"absolute",zIndex:100}}>{item.title}</h2>
-          </li>
-        })}
+        {option.items}
       </ul>
     </div>
   )
